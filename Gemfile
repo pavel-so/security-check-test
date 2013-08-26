@@ -6,20 +6,21 @@ gem 'rails', '3.2.13'
 
 gem 'acts_as_commentable', '3.0.1'
 gem 'acts_as_paranoid', '~> 0.4.2'
-gem 'acts_as_state_machine', :git => 'git://github.com/bikezilla/acts_as_state_machine.git'
-gem 'acts_as_versioned', :git => 'git://github.com/pavel-so/acts_as_versioned.git'
+gem 'acts_as_state_machine', :github => 'ilabsolutions/acts_as_state_machine'
+gem 'acts_as_versioned', :github => 'ilabsolutions/acts_as_versioned'
 gem 'american_date'
 gem 'amatch'
 gem 'barby'
 
 # instead of vendor/plugins/super_inplace_controls
-gem 'best_in_place', "~> 0.2.0"
+gem 'best_in_place'
 
 gem 'bio'
 gem 'carmen'
 gem 'carmen-rails'
 gem 'crypt'
 gem 'delayed_job_active_record'
+gem 'delayed_job_with_user', :github =>'ilabsolutions/delayed_job_with_user'
 
 # IS: this isn't supported anymore
 # consider using simple-form instead
@@ -73,7 +74,7 @@ gem 'thin'
 gem 'timecop'
 gem 'uuid'
 gem 'whenever'
-gem 'wicked_pdf'
+gem 'wicked_pdf', :git => 'git://github.com/mileszs/wicked_pdf.git'
 gem 'will_paginate', '~> 3.0.4'
 gem 'xmlcanonicalizer', '~> 0.1.1'
 gem 'yfactorial-roxy', :require => 'roxy'
@@ -105,6 +106,7 @@ group :cucumber do
   gem 'pry-remote'
   gem 'pry-nav'
   gem 'pry-stack_explorer'
+  gem 'pry-doc'
 end
 
 group :development do
@@ -122,6 +124,7 @@ group :development do
   gem 'pry-remote'
   gem 'pry-nav'
   gem 'pry-stack_explorer'
+  gem 'pry-doc'
   gem 'cucumber-console'
   gem 'debugger'
   gem 'sunspot_solr'
@@ -143,6 +146,7 @@ group :test do
   gem 'pry-remote'
   gem 'pry-nav'
   gem 'pry-stack_explorer'
+  gem 'pry-doc'
   gem 'poltergeist'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'guard-rspec'
