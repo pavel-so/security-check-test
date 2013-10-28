@@ -54,7 +54,7 @@ gem 'net-ldap', '0.2.2'
 gem 'newrelic_rpm'
 gem 'oauth2'
 gem 'oink'
-gem 'paperclip'
+gem 'paperclip', '~> 3.5.2'
 gem 'rack-oauth2', '~> 1.0.0'
 
 # IS: don't think we need these

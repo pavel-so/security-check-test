@@ -114,7 +114,7 @@ GEM
     chunky_png (1.2.9)
     climate_control (0.0.3)
       activesupport (>= 3.0)
-    cocaine (0.5.2)
+    cocaine (0.5.3)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
@@ -279,10 +279,10 @@ GEM
       hodel_3000_compliant_logger
     options (2.3.0)
       fattr
-    paperclip (3.5.1)
+    paperclip (3.5.2)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
-      cocaine (~> 0.5.0)
+      cocaine (~> 0.5.3)
       mime-types
     phantomjs (1.8.1.1)
       poltergeist
@@ -498,7 +498,7 @@ DEPENDENCIES
   newrelic_rpm
   oauth2
   oink
-  paperclip
+  paperclip (~> 3.5.2)
   phantomjs
   poltergeist
   progress_bar
