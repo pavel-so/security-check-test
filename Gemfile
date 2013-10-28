@@ -1,8 +1,9 @@
-source 'http://rubygems.org'
-source 'http://gemcutter.org'
+source 'https://rubygems.org'
+# Redirects to rubygems.org
+# source 'http://gemcutter.org'
 source 'http://gems.github.com'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.15'
 
 gem 'acts_as_commentable', '3.0.1'
 gem 'acts_as_paranoid', '~> 0.4.2'
@@ -61,12 +62,12 @@ gem 'rack-oauth2', '~> 1.0.0'
 
 gem 'rb-inotify', '~> 0.9.0'
 
-gem 'recaptcha', '0.2.3', :require => 'recaptcha/rails'
+gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'remotipart', "~> 1.0"
 gem 'ri_cal'
 gem 'rmagick'
 gem 'roo'
-gem 'rubyzip'
+gem 'rubyzip', '< 1.0.0'
 gem 'sanitize'
 gem 'spreadsheet'
 gem 'sunspot_rails'
@@ -78,6 +79,11 @@ gem 'wicked_pdf', :git => 'git://github.com/mileszs/wicked_pdf.git'
 gem 'will_paginate', '~> 3.0.4'
 gem 'xmlcanonicalizer', '~> 0.1.1'
 gem 'yfactorial-roxy', :require => 'roxy'
+gem 'net-sftp'
+gem 'progress_bar'
+
+# temporary - try to run rake tasks with debugger
+# gem 'debugger'
 
 group :assets do
   # needed for deployment
@@ -95,7 +101,7 @@ end
 
 group :cucumber do
   gem 'factory_girl'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '~> 1.0.1'
   gem 'cucumber-rails'
   gem 'factory_girl_rails'
   #This is just to get the same version of rspec as in test.rb
@@ -112,13 +118,11 @@ end
 group :development do
   #Preformance analyzier gems we'll only need in dev
   #config.gem 'bullet' , :lib => false
-  gem 'spork', '~> 1.0rc'
-  gem 'spork-rails'
   gem 'guard-cucumber'
   gem 'guard-rspec'
   gem 'guard-coffeescript'
   gem 'guard-sass', :require => false
-  gem 'capistrano', '~> 2.11.2'
+  gem 'capistrano', '~> 2.15.5'
   gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git'
   gem 'pry'
   gem 'pry-remote'
@@ -137,7 +141,7 @@ group :test do
   gem 'rspec-retry'
   gem 'factory_girl'
   gem 'factory_girl_rails'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '~> 1.0.1'
   gem 'selenium'
   gem 'selenium-client' #, '~> 1.2.16'
   gem 'sunspot_test'
@@ -150,7 +154,5 @@ group :test do
   gem 'poltergeist'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'guard-rspec'
-  gem 'spork', '~> 1.0rc'
-  gem 'guard-spork'
   gem 'launchy'
 end
