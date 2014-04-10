@@ -1,113 +1,96 @@
-source 'https://rubygems.org'
-# Redirects to rubygems.org
-# source 'http://gemcutter.org'
+source 'http://rubygems.org'
 source 'http://gems.github.com'
 
-gem 'rails', '3.2.15'
+# RAILS VER
+gem 'rails', '3.2.17'
 
-gem 'acts_as_commentable', '3.0.1'
-gem 'acts_as_paranoid', '~> 0.4.2'
-gem 'acts_as_state_machine', :github => 'ilabsolutions/acts_as_state_machine'
-gem 'acts_as_versioned', :github => 'ilabsolutions/acts_as_versioned'
-gem 'american_date'
-gem 'amatch'
-gem 'barby'
-
-# instead of vendor/plugins/super_inplace_controls
-gem 'best_in_place'
-
-gem 'bio'
-gem 'carmen'
-gem 'carmen-rails'
-gem 'crypt'
-gem 'delayed_job_active_record'
-gem 'delayed_job_with_user', :github =>'ilabsolutions/delayed_job_with_user'
-
-# IS: this isn't supported anymore
-# consider using simple-form instead
-gem 'dynamic_form'
-
-gem 'exception_notification'
-
-# IS: Should be installed automatically if therubyracer is installed
-# gem 'execjs'
-
-# IS: not sure, but we can avoid using this
-# gem 'libv8', '~> 3.16.14.1'
-
-# IS: obsolete if we're going to use Asset Pipeline
-gem 'jammit'
-
+# obsolete / problematic
+gem 'dynamic_form' # IS: this isn't supported anymore, consider using simple-form instead
+gem 'jammit' # IS: obsolete if we're going to use Asset Pipeline
 # patched to open source file as binary, necessary in ruby 1.9
 # IS: suggest removing -- is used only in app/models/attachment.rb:133
 gem 'ezcrypto', '0.7.2', :path => "vendor/gems/ezcrypto-0.7.2"
 
-gem 'google-spreadsheet-ruby'
+# hard versioned gems - please add a reason why it is hard versioned
+gem 'acts_as_commentable', '3.0.1'
+gem 'net-ldap', '0.2.2'
+
+# lower version reqs
+gem 'rubyzip', '< 1.0.0'
+
+# loose versioned gems 
+gem 'acts_as_paranoid', '~> 0.4.2'
+gem 'ice_cube', '~> 0.11.0'
 gem 'gpgme', '~> 2.0.2'
+gem 'paperclip', '~> 3.5.2'
+gem 'rack-oauth2', '~> 1.0.0'
+gem 'rb-inotify', '~> 0.9.0' if /linux/ =~ RUBY_PLATFORM
+gem 'remotipart', "~> 1.0"
+gem 'will_paginate', '~> 3.0.4'
+gem 'xmlcanonicalizer', '~> 0.1.1'
+
+# github repo gems
+gem 'acts_as_state_machine', :github => 'ilabsolutions/acts_as_state_machine'
+gem 'acts_as_versioned', '3.2.2', :github => 'ilabsolutions/acts_as_versioned'
+gem 'delayed_job_with_user', :github =>'ilabsolutions/delayed_job_with_user'
+gem 'wicked_pdf', :git => 'git://github.com/mileszs/wicked_pdf.git'
+gem 'respond_to_parent', github: 'Gonzih/respond_to_parent'
+
+# no version specified
+# system utils
+gem 'delayed_job', github: "radiohead/delayed_job"
+gem 'delayed_job_active_record'
+gem 'daemons'
+gem 'exception_notification'
 gem 'haml'
 gem 'hpricot'
 gem 'jquery-rails'
 gem 'memcache-client'
-gem 'mimetype-fu', :require => 'mimetype_fu'
 gem 'mysql2'
-gem 'net-ldap', '0.2.2'
 gem 'newrelic_rpm'
 gem 'oauth2'
-gem 'oink'
-gem 'paperclip', '~> 3.5.2'
-gem 'rack-oauth2', '~> 1.0.0'
-
-# IS: don't think we need these
-# gem 'rake', '0.9.2.2'
-
-gem 'rb-inotify', '~> 0.9.0'
-
-gem 'recaptcha', :require => 'recaptcha/rails'
-gem 'remotipart', "~> 1.0"
-gem 'ri_cal'
-gem 'rmagick'
-gem 'roo'
-gem 'rubyzip', '< 1.0.0'
-gem 'sanitize'
-gem 'spreadsheet'
 gem 'sunspot_rails'
-gem 'thin'
+gem 'crypt'
+gem 'amatch'
+gem 'rchardet', :require => false
+gem 'xml-object', :require => false
+gem 'rmagick'
+gem 'sanitize'
 gem 'timecop'
-gem 'uuid'
 gem 'whenever'
-gem 'wicked_pdf', :git => 'git://github.com/mileszs/wicked_pdf.git'
-gem 'will_paginate', '~> 3.0.4'
-gem 'xmlcanonicalizer', '~> 0.1.1'
+gem 'uuid'
 gem 'yfactorial-roxy', :require => 'roxy'
 gem 'net-sftp'
+gem 'guard-coffeescript'
+gem 'guard-sass', :require => false
+
+# UI / presentation utils
+gem 'american_date'
+gem 'barby'
+gem 'best_in_place'
+gem 'bio'
+gem 'carmen'
+gem 'carmen-rails'
+gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'ri_cal'
+gem 'google-spreadsheet-ruby'
+gem 'roo'
+gem 'spreadsheet'
+
+# misc / unknown
+gem 'mimetype-fu', :require => 'mimetype_fu'
+gem 'oink'
 gem 'progress_bar'
 
-# temporary - try to run rake tasks with debugger
-# gem 'debugger'
-
 group :assets do
-  # needed for deployment
   gem 'compass'
-  gem 'compass-rails'
-
-  gem 'sass-rails' #,   '~> 3.2.3'
-  gem 'coffee-rails' #, '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>=1.0.3'
 end
 
-group :cucumber do
-  gem 'factory_girl'
-  gem 'database_cleaner', '~> 1.0.1'
-  gem 'cucumber-rails'
-  gem 'factory_girl_rails'
-  #This is just to get the same version of rspec as in test.rb
-  gem 'rspec-rails'
-  gem 'capybara', '1.1.2'
-  gem 'headless'
+group :development, :test do
   gem 'pry'
   gem 'pry-remote'
   gem 'pry-nav'
@@ -116,43 +99,32 @@ group :cucumber do
 end
 
 group :development do
-  #Preformance analyzier gems we'll only need in dev
-  #config.gem 'bullet' , :lib => false
-  gem 'guard-cucumber'
-  gem 'guard-rspec'
-  gem 'guard-coffeescript'
-  gem 'guard-sass', :require => false
+  gem 'bullet', require: false
+  gem 'annotate'
   gem 'capistrano', '~> 2.15.5'
   gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git'
-  gem 'pry'
-  gem 'pry-remote'
-  gem 'pry-nav'
-  gem 'pry-stack_explorer'
-  gem 'pry-doc'
-  gem 'cucumber-console'
+  gem 'thin'
   gem 'debugger'
   gem 'sunspot_solr'
+  gem 'rubocop'
+  gem 'better_errors'
 end
 
 group :test do
-  gem 'oauth2'
+  gem 'perftools.rb', '~> 2.0.1', require: 'perftools', :git => 'git://github.com/tmm1/perftools.rb.git'
+  gem 'sqlite3'
   gem 'capybara' , '1.1.2'
   gem 'rspec-rails'
   gem 'rspec-retry'
   gem 'factory_girl'
   gem 'factory_girl_rails'
+  gem 'fuubar'
   gem 'database_cleaner', '~> 1.0.1'
   gem 'selenium'
   gem 'selenium-client' #, '~> 1.2.16'
   gem 'sunspot_test'
   gem 'sham'
-  gem 'pry'
-  gem 'pry-remote'
-  gem 'pry-nav'
-  gem 'pry-stack_explorer'
-  gem 'pry-doc'
   gem 'poltergeist'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
-  gem 'guard-rspec'
   gem 'launchy'
 end
